@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -38,6 +39,9 @@ public abstract class BasePage {
     protected String getText(By locator) {
         return waitUntilVisible(locator).getText();
     }
+    protected String getValue(By locator) {
+        return waitUntilVisible(locator).getAttribute("value");
+    }
 
     protected boolean isVisible(By locator) {
         try {
@@ -45,5 +49,14 @@ public abstract class BasePage {
         } catch (TimeoutException | NoSuchElementException e) {
             return false;
         }
+    }
+
+    protected void waitForVisibility(By locator) {
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(locator)
+        );
+    }
+    protected List<WebElement> findElements(By locator) {
+        return driver.findElements(locator);
     }
 }
