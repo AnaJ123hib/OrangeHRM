@@ -7,7 +7,7 @@ public class UserData {
             "userExample",
             "Enabled",
             "Admin",
-            "Peter Mac Anderson",
+            EmployeeData.DEFAULT_EMPLOYEE,
             "Password123!"
     );
 
@@ -15,7 +15,7 @@ public class UserData {
             "userEdited",
             "Disabled",
             "ESS",
-            "Peter Mac Anderson",
+            EmployeeData.DEFAULT_EMPLOYEE,
             ""
     );
 }

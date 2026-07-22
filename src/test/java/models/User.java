@@ -1,51 +1,38 @@
 package models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class User {
+    @Setter
+    @Getter
     private String username;
+    @Setter
+    @Getter
     private String role;
+    @Setter
+    @Getter
     private String status;
-    private String employeeName;
+    private Employee employee;
+    @Setter
+    @Getter
     private String password;
 
     public User(
             String username, String role, String status,
-            String employeeName, String password) {
+            Employee employee, String password) {
         this.username = username;
         this.role = role;
         this.status = status;
-        this.employeeName = employeeName;
+        this.employee = employee;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
-    }
-    public String getRole() {
-        return role;
-    }
-    public  String getStatus() {
-        return status;
-    }
-    public String getEmployeeName() {
-        return employeeName;
-    }
-    public String getPassword() {
-        return password;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    public void setRole(String role) {
-        this.role = role;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

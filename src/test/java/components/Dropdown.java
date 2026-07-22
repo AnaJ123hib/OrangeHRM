@@ -1,6 +1,7 @@
 package components;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
 public class Dropdown extends BasePage {
@@ -11,5 +12,13 @@ public class Dropdown extends BasePage {
                         option + "']"
         );
         click(optionLocator);
+    }
+    public String getSelectedOption(By dropdown) {
+
+        WebElement dropdownElement = driver.findElement(dropdown);
+
+        return dropdownElement
+                .findElement(By.cssSelector(".oxd-select-text-input"))
+                .getText();
     }
 }

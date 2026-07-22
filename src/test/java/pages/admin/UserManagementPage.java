@@ -154,9 +154,7 @@ public class UserManagementPage extends BasePage {
             type(usernameInput, user.getUsername());
         }
 
-        if (!user.getEmployeeName().isBlank()) {
-            selectEmployee(user.getEmployeeName());
-        }
+        selectEmployee(user.getEmployee().getFullName());
 
         if (!user.getStatus().isBlank()) {
             selectStatus(user.getStatus());

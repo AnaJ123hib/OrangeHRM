@@ -26,13 +26,19 @@ public abstract class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    protected void waitUntilInvisible(By locator) {
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
     protected void click(By locator) {
+        waitUntilVisible(locator);
         waitUntilClickable(locator).click();
     }
 
     protected void type(By locator, String text) {
         WebElement element = waitUntilVisible(locator);
-        element.clear();
+        element.click();
+        element.sendKeys(Keys.CONTROL, "a");
+        element.sendKeys(Keys.DELETE);
         element.sendKeys(text);
     }
 
